@@ -44,4 +44,11 @@ public class BinaryOctalConverter1 extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
     }
+
+    public static void main(String[] args){
+        BinaryOctalConverter1 window = new BinaryOctalConverter1();
+        WindowDestroyer MyListener = new WindowDestroyer();
+        window.addWindowListener(MyListener);
+        window.setVisible(true);
+    }
 }

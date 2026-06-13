@@ -3,14 +3,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BinaryOctalConverter2 extends JFrame implements ActionListener {
+public class BinaryOctalConverter3 extends JFrame implements ActionListener {
     public static int width = 600;
     public static int height = 300;
     String str;
     JTextField theText;
     JTextField result;
 
-    public BinaryOctalConverter2(){
+    public BinaryOctalConverter3(){
         super();
         setSize(width,height);
         setTitle("Binary/Octal converter");
@@ -49,17 +49,29 @@ public class BinaryOctalConverter2 extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getActionCommand().contains("binary")){
             int num;
-            num = Integer.parseInt(theText.getText(),8);
-            str = Integer.toBinaryString(num);
-            str += " Value converted to binary";
-            result.setText(str);
+            try{
+                num = Integer.parseInt(theText.getText(),8);
+                str = Integer.toBinaryString(num);
+                str += " Value converted to binary";
+                result.setText(str);
+            }
+            catch(NumberFormatException E){
+                result.setText("Sorry, can not covert that.");
+            }
+
         }
         else if(e.getActionCommand().contains("octal")){
             int num;
-            num = Integer.parseInt(theText.getText(),2);
-            str = Integer.toOctalString(num);
-            str += " Value converted to octal";
-            result.setText(str);
+            try{
+                num = Integer.parseInt(theText.getText(),2);
+                str = Integer.toOctalString(num);
+                str += " Value converted to octal";
+                result.setText(str);
+            }
+            catch(NumberFormatException E){
+                result.setText("Sorry, can not covert that.");
+            }
+
         }
         else if(e.getActionCommand().contains("Clear")){
             str = "";
@@ -69,7 +81,7 @@ public class BinaryOctalConverter2 extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args){
-        BinaryOctalConverter2 window = new BinaryOctalConverter2();
+        BinaryOctalConverter3 window = new BinaryOctalConverter3();
         WindowDestroyer MyListener = new WindowDestroyer();
         window.addWindowListener(MyListener);
         window.setVisible(true);
