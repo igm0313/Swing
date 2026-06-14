@@ -19,6 +19,15 @@ public class BinaryOctalConverter3 extends JFrame implements ActionListener {
         content.setLayout(new BorderLayout());
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
+        JMenuBar Jbar = new JMenuBar();
+        JMenu me = new JMenu();
+        JMenuItem it = new JMenuItem("SAVE");
+        me.add(it);
+        it = new JMenuItem("Load");
+        me.add(it);
+        Jbar.add(me);
+        setJMenuBar(Jbar);
+        content.add(Jbar);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3,1,20,50));
